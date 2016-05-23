@@ -1,0 +1,29 @@
+-
+  Test LibraryBook.change_state
+-
+  !context
+    uid: 'base.user_demo'
+-
+  create book in draft state
+-
+  !record {model: library.book, id: testbook}:
+    - name: Test Book
+    - state: draft
+-
+  call change_state to make book available
+-
+  !python {model: library.book, id: testbook}: |
+    self.change_state('available')
+-
+  !assert {model: library.book, id: testbook, string: wrong state}:
+    - state == 'available'
+-
+  try to call change_state to make book draft
+-
+  !python {model: library.book, id: testbook}: |
+    self.change_state('draft')
+-
+  check the book is still available
+-
+  !assert {model: library.book, id: testbook, string: wrong state}:
+    - state == 'available'

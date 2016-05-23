@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- note that this overwrites the form with the same xmlid from the
+             presious recipe /-->
+        <record id="form_all_customers" model="ir.ui.view">
+            <field name="name">All customers</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button type="object" 
+                            name="open_commercial_entity"
+                            string="Open commercial partner"       
+                            class="oe_highlight" />
+                        <!-- this is the button from the button recipe /-->
+                        <button type="action"
+                            name="%(base.action_partner_category_form)d"
+                            string="Open partner categories" />
+                    </header>
+                    <group string="Content" name="my_content">
+                        <field name="name" />
+                        <field name="category_id" widget="many2many_tags" />
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,9 @@
+server {
+  listen [::]:80 ipv6only=off;
+  server_name           odoo.example.com;
+  access_log            /var/log/nginx/odoo80.access.log combined;
+  error_log             /var/log/nginx/odoo80.error.log;
+  location / {
+    rewrite ^/(.*) https://odoo.example.com:443/$1 permanent;
+  }
+}

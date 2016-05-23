@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <act_window id="action_all_customers"
+            name="All customers"
+            res_model="res.partner"
+            view_mode="tree,form"
+            domain="[('customer', '=', True)]"
+            context="{'default_customer': True}"
+            limit="80" />
+        <menuitem id="menu_custom_toplevel"
+            name="My custom menu" />
+        <menuitem id="menu_custom_left"
+            parent="menu_custom_toplevel"
+            name="This will appear in the left bar" />
+        <menuitem id="menu_all_customers"
+            parent="menu_custom_left"
+            action="action_all_customers"
+            sequence="10"
+            groups="" />
+    </data>
+</openerp>

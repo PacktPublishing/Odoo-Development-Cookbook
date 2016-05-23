@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link href="/ch14_r02_creating_or_modifying_templates/static/src/css/ch14_r02_creating_or_modifying_templates.css" rel="stylesheet" type="text/css"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+PYTHON=~odoo/env-odoo-9.0/bin/python
+ODOO=~odoo/odoo-prod/project/src/odoo/odoo.py
+CONF=~odoo/odoo-prod/project/production.conf
+
+${PYTHON} ${ODOO} -c ${CONF} "$*"
+

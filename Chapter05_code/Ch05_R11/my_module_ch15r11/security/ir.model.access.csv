@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_library_book_user,my_module.book.user,model_my_module_book,base.group_user,1,1,0,0
+access_library_book_admin,my_module.book.admin,model_my_module_book,base.group_system,1,0,0,0

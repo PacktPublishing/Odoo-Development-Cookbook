@@ -1,0 +1,44 @@
+server {
+  listen [::]:443 ipv6only=off;
+  server_name          odoo.example.com;
+  ssl on;
+  ssl_certificate      /etc/nginx/ssl/server.crt;
+  ssl_certificate_key  /etc/nginx/ssl/server.key;
+  access_log           /var/log/nginx/odoo443.access.log combined;
+  error_log            /var/log/nginx/odoo443.error.log;
+  client_max_body_size 128M;
+  gzip                 on;
+  proxy_read_timeout   600s;
+  index  index.html    index.htm index.php;
+
+  add_header Strict-Transport-Security "max-age=31536000";
+  proxy_set_header         Host $http_host;
+  proxy_set_header         X-Real-IP $remote_addr;
+  proxy_set_header         X-Forward-For $proxy_add_x_forwarded_for;
+  proxy_set_header         X-Forwarded-Proto https;
+  proxy_set_header         X-Forwarded-Host $http_host;
+
+  location / {
+    proxy_pass              http://localhost:8069;
+    proxy_read_timeout      6h;
+    proxy_connect_timeout   5s;
+    proxy_redirect          http://$http_host/ https://$host:$server_port/;
+    add_header X-Static     no;
+    proxy_buffer_size       64k;
+    proxy_buffering         off;
+    proxy_buffers           4 64k;
+    proxy_busy_buffers_size 64k;
+    proxy_intercept_errors  on;
+  }
+
+  location /longpolling/ {
+    proxy_pass              http://localhost:8072;
+  }
+
+  location ~ /[a-zA-Z0-9_-]*/static/ {
+    proxy_pass              http://localhost:8069;
+    proxy_cache_valid       200 60m;
+    proxy_buffering         on;
+    expires                 864000;
+  }
+}

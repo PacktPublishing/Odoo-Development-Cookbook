@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="server_action_wizard" model="ir.actions.server">
+            <field name="name">Execute our wizard</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="base.model_res_partner" />
+            <field name="code">
+partners = model.browse(context.get('active_ids', []))
+if all(p.is_company for p in partners):
+    action = {
+        'name': 'My wizard working on companies',
+        'type': 'ir.actions.act_window',
+        'views': [(False, 'form')],
+        'res_model': 'my.wizard.companies',
+        'target': 'new',
+    }
+elif all(not p.is_company for p in partners):
+    action = {
+        'name': 'My wizard working on persons',
+        'type': 'ir.actions.act_window',
+        'views': [(False, 'form')],
+        'res_model': 'my.wizard.persons',
+        'target': 'new',
+    }
+else:
+    action = {
+        'name': 'My wizard working on mixed companies/people',
+        'type': 'ir.actions.act_window',
+        'views': [(False, 'form')],
+        'res_model': 'my.wizard.mixed',
+        'target': 'new',
+    }
+            </field>
+        </record>
+        <function model="ir.model.data" name="ir_set">
+            <value>action</value>
+            <value>client_action_multi</value>
+            <value> server_action_wizard</value>
+            <value eval="['res.partner']" />
+            <value eval="'ir.actions.server,%s' % ref('server_action_wizard')" />
+        </function>
+    </data>
+</openerp>

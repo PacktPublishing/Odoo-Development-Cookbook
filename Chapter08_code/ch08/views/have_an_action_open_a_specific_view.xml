@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="form_all_customers" model="ir.ui.view">
+            <field name="name">All customers</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="action_all_customers_form" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="action_all_customers" />
+            <field name="view_id" ref="form_all_customers" />
+            <field name="view_mode">form</field>
+            <field name="sequence">10</field>
+        </record>
+        <!-- this is what the tip in the recipe proposes to add
+             will be overwritten in the list views recipe /-->
+        <record id="action_all_customers_tree" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="action_all_customers" />
+            <field name="view_id" ref="base.view_partner_tree" />
+            <field name="view_mode">tree</field>
+            <field name="sequence">9</field>
+        </record>
+    </data>
+</openerp>

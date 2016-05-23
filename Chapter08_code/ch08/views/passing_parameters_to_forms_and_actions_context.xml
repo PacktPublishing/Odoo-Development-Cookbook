@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <act_window id="action_all_customers_fr"
+            name="Tous les clients"
+            res_model="res.partner"
+            domain="[('customer', '=', True)]"
+            context="{'lang': 'fr_FR', 'default_lang': 'fr_FR', 'active_test': False}" />
+        <menuitem id="recipe_context"
+            string="Passing parameters to forms and actions: Context"
+            action="action_all_customers_fr" />
+    </data>
+</openerp>

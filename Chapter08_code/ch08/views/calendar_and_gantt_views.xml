@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="calendar_project_task" model="ir.ui.view">
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date_start" date_stop="date_end" color="project_id">
+                    <field name="name" />
+                    <field name="user_id" />
+                </calendar>
+            </field>
+        </record>
+        <record id="gantt_project_task" model="ir.ui.view">
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <gantt date_start="date_start" date_stop="date_end" progress="progress" default_group_by="project_id" />
+            </field>
+        </record>
+        <act_window id="action_calendar_gantt"
+            res_model="project.task"
+            name="Calendar and Gantt views" />
+        <record id="action_calendar_gantt_calendar" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="action_calendar_gantt" />
+            <field name="view_id" ref="calendar_project_task" />
+            <field name="view_mode">calendar</field>
+        </record>
+        <record id="action_calendar_gantt_gantt" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="action_calendar_gantt" />
+            <field name="view_id" ref="gantt_project_task" />
+            <field name="view_mode">gantt</field>
+        </record>
+        <menuitem id="menu_action_calendar_gantt"
+            action="action_calendar_gantt" />
+    </data>
+</openerp>

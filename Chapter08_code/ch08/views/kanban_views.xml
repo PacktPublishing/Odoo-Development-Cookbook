@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="kanban_all_customers" model="ir.ui.view">
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="supplier" />
+                    <field name="customer" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card">
+                                <a type="open">
+                                    <field name="name" />
+                                </a>
+                                <t t-if="record.supplier.raw_value or record.customer.raw_value">
+                                    is
+                                    <t t-if="record.customer.raw_value">
+                                        a customer
+                                        <t t-if="record.supplier.raw_value"> and </t>
+                                    </t>
+                                    <t t-if="record.supplier.raw_value">
+                                        a supplier
+                                    </t>
+                                </t>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="action_all_customers_kanban" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="action_all_customers" />
+            <field name="view_id" ref="kanban_all_customers" />
+            <field name="view_mode">kanban</field>
+            <field name="sequence">15</field>
+        </record>
+    </data>
+</openerp>

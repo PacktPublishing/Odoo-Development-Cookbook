@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="book_snippet" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="inside">
+            <div>
+                <div class="oe_snippet_thumbnail">
+                    <div style="background: white;box-shadow:none" class="oe_snippet_thumbnail_img" >
+                        <i class="fa fa-book fa-5x text-muted" />
+                    </div>
+                    <span class="oe_snippet_thumbnail_title">Latest books</span>
+                </div>
+                <div class="oe_snippet_body book_snippet">
+                    <section class="container">
+                        <h2>Latest books</h2>
+                        <table class="table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Release date</th>
+                            </tr>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='snippet_options']" position="inside">
+            <div data-selector=".book_snippet"
+                data-drop-near="p, h1, h2, h3, blockquote, .well, .panel"
+                data-drop-in=".content">
+                <li class="dropdown-submenu">
+                    <a href="#">Show books</a>
+                    <ul class="dropdown-menu">
+                        <li data-select_class="book_snippet-show3"><a>3</a></li>
+                        <li data-select_class="book_snippet-show5"><a>5</a></li>
+                        <li data-select_class="book_snippet-show10"><a>10</a></li>
+                        <li data-select_class="book_snippet-show15"><a>15</a></li>
+                    </ul>
+                </li>
+            </div>
+            <div data-selector=".book_snippet table">
+                <li class="dropdown-submenu">
+                    <a href="#">Table style</a>
+                    <ul class="dropdown-menu">
+                        <li data-toggle_class="table-striped"><a>Striped</a></li>
+                        <li data-toggle_class="table-bordered"><a>Bordered</a></li>
+                        <li data-toggle_class="table-condensed"><a>Condensed</a></li>
+                    </ul>
+                </li>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,12 @@
+[Unit]
+Description=Odoo 9.0
+After=postgresql.service
+
+[Service]
+Type=simple
+User=odoo
+Group=odoo
+ExecStart=/home/odoo/odoo-prod/project/bin/start-odoo
+
+[Install]
+WantedBy=multi-user.target

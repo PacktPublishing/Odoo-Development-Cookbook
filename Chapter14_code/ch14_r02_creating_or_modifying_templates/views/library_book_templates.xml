@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="books">
+        <t t-call="website.layout">
+            <section>
+                This is an editable text before the list of books.
+            </section>
+            <t t-foreach="books" t-as="book">
+                <article itemscope="itemscope" itemtype="http://schema.org/Book" t-attf-class="row book-#{book_parity}">
+                    <h2 t-field="book.name" class="col-md-12" />
+                    <div class="col-md-2" t-att-dateCreated="book.date_release" t-field="book.date_release" />
+                    <ul  class="col-md-10">
+                        <li t-foreach="book.author_ids" t-as="author" itemprop="author">
+                            <t t-esc="author.name" />
+                        </li>
+                    </ul>
+                </article>
+            </t>
+            <section contenteditable="False">
+                This is a non-editable text after the list of books.
+            </section>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="graph_project_project_bar" model="ir.ui.view">
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <graph type="bar">
+                    <field name="parent_id" type="row" />
+                    <field name="user_id" type="row" />
+                    <field name="effective_hours" type="measure" />
+                </graph>
+            </field>
+        </record>
+        <record id="graph_project_project_pivot" model="ir.ui.view">
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <field name="parent_id" type="row" />
+                    <field name="user_id" type="row" />
+                    <field name="planned_hours" type="measure" />
+                    <field name="effective_hours" type="measure" />
+                    <field name="progress_rate" type="measure" />
+                </graph>
+            </field>
+        </record>
+        <act_window id="action_project_graph_bar"
+            res_model="project.project"
+            name="Graph and pivot views: bar"
+            view_mode="graph"
+            view_id="graph_project_project_bar"/>
+        <act_window id="action_project_graph_pivot"
+            res_model="project.project"
+            name="Graph and pivot views: pivot"
+            view_mode="graph"
+            view_id="graph_project_project_pivot"/>
+        <menuitem id="menu_action_project_graph_bar"
+            action="action_project_graph_bar" />
+        <menuitem id="menu_action_project_graph_pivot"
+            action="action_project_graph_pivot" />
+    </data>
+</openerp>

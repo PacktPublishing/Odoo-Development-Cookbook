@@ -1,0 +1,11 @@
+<templates>
+    <t t-name="FieldMany2OneButtons">
+        <div class="oe_form_field_many2one_buttons">
+            <t t-foreach="widget.user_list" t-as="user_id">
+                <button t-att-disabled="widget.get('effective_readonly') ? 'disabled' : False" t-att-data-id="user_id" class="btn btn-default btn-sm">
+                    <t t-esc="widget.user_list[user_id].name" />
+                </button>
+            </t>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link href="/ch15_r04/static/src/css/ch15_r04.css" rel="stylesheet" type="text/css"/>
+            <script src="/ch15_r04/static/src/js/ch15_r04.js" type="text/javascript" />
+        </xpath>
+    </template>
+    <template id="qunit_suite" inherit_id="web.qunit_suite">
+        <xpath expr="//head" position="inside">
+            <script src="/ch15_r04/static/test/ch15_r04.js" type="text/javascript" />
+        </xpath>
+    </template>
+</odoo>

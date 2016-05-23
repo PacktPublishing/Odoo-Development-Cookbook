@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="action_my_customers" model="ir.actions.act_window">   
+            <field name="name">All customers who don't speak French</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">[('customer', '=', True), ('user_id', '=', uid), ('lang', '!=', 'fr_FR')]</field>
+        </record>
+        <record id="action_customers_or_suppliers" model="ir.actions.act_window">   
+            <field name="name">Customers or suppliers</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">['|', ('customer', '=', True), ('supplier', '=', True)]</field>
+        </record>
+        <menuitem id="menu_action_my_customers" action="action_my_customers" />
+        <menuitem id="menu_action_customers_or_suppliers" action="action_customers_or_suppliers" />
+    </data>
+</openerp>

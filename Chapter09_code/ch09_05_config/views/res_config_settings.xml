@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_general_config_library" model="ir.ui.view">
+      <field name="name">Configuration: add Library options</field>
+      <field name="model">base.config.settings</field>
+      <field name="inherit_id" ref="base_setup.view_general_configuration" />
+      <field name="arch" type="xml">
+
+        <group name="google" position="before">
+          <group name="library_release_date" string="Library">
+            <!-- Release Dates option -->
+            <label for="id" string="Releases" />
+            <div>
+              <field name="group_release_dates" class="oe_inline"/>
+              <label for="group_release_dates" />
+            </div>
+            <!-- Notes option -->
+            <label for="id" string="Notes" />
+            <div>
+              <field name="module_note" class="oe_inline"/>
+              <label for="module_note" />
+            </div>
+          </group>
+        </group>
+
+      </field>
+    </record>
+
+</odoo>
