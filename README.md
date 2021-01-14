@@ -1,8 +1,3 @@
-## $5 Tech Unlocked 2021!
-[Buy and download this Book for only $5 on PacktPub.com](https://www.packtpub.com/product/odoo-development-cookbook/9781785883644)
------
-*If you have read this book, please leave a review on [Amazon.com](https://www.amazon.com/gp/product/178588364X).     Potential readers can then use your unbiased opinion to help them make purchase decisions. Thank you. The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
-
 #Odoo Development Cookbook
 
 This code is targeted at Python developers who want to learn Odoo development or consolidate their Odoo skills. Some experience with the JavaScript programming language and web development in general is required to fully benefit from the frontend chapters.
